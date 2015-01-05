@@ -1,6 +1,6 @@
 # Django Docker container
 
-FROM centos:centos6
+FROM centos:centos7
 MAINTAINER Chris Collins <collins.christopher@gmail.com>
 
 ENV DJANGO_VERSION 1.7.2
@@ -13,3 +13,5 @@ RUN curl -sSL $DJANGO -o django-${DJANGO_VERSION}.tar.gz && \
 WORKDIR /tmp
 RUN python setup.py install && python -c "import django; print(django.get_version())"
 
+EXPOSE 80
+EXPOSE 443
